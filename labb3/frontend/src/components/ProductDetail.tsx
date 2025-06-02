@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Product, fetchProductById, fetchProducts } from '../services/api';
+import { Product, fetchProductById } from '../services/api';
 import { useCart } from '../context/CartContext';
-
-const { addToCart } = useCart();
+import './ProductDetail.css';
 
 
 
 function ProductDetail() {
 
+    const { addToCart } = useCart();
     const { id } = useParams<{ id: string }>();
     const [product, setProduct] = useState<Product | null >(null);
     const [loading, setLoading] = useState(true);
